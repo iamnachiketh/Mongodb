@@ -616,4 +616,104 @@ db.users.find({age:{$exists:true}})
   isActive: true
 }
 
+
+
+db.users.find({age:{$gte:20,$lte:21}}) this will also do and query
+{
+  _id: ObjectId('677238cfb65d712feda685f4'),
+  fname: 'nachi',
+  age: 21,
+  email: 'nachi@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f8'),
+  fname: 'Meera',
+  age: 21,
+  email: 'meera21@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fc'),
+  fname: 'Sara',
+  age: 20,
+  email: 'sara20@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68605'),
+  fname: 'Priya',
+  age: 20,
+  email: 'priya20@gmail.com',
+  isActive: true
+}
+
+
+Another way to do and query is by using $and
+
+db.users.find({$and: [ { age:{$gte:20} }, { age: {$lte:21} } ] } )
+{
+  _id: ObjectId('677238cfb65d712feda685f4'),
+  fname: 'nachi',
+  age: 21,
+  email: 'nachi@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f8'),
+  fname: 'Meera',
+  age: 21,
+  email: 'meera21@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fc'),
+  fname: 'Sara',
+  age: 20,
+  email: 'sara20@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68605'),
+  fname: 'Priya',
+  age: 20,
+  email: 'priya20@gmail.com',
+  isActive: true
+}
+
+
+
+
+$or is used to do or query
+
+db.users.find({$or: [ { age:{$gte:20,$lte:21} }, { name:"nachi"} ] } )
+{
+  _id: ObjectId('677238cfb65d712feda685f4'),
+  fname: 'nachi',
+  age: 21,
+  email: 'nachi@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f8'),
+  fname: 'Meera',
+  age: 21,
+  email: 'meera21@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fc'),
+  fname: 'Sara',
+  age: 20,
+  email: 'sara20@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68605'),
+  fname: 'Priya',
+  age: 20,
+  email: 'priya20@gmail.com',
+  isActive: true
+}
+
 */
