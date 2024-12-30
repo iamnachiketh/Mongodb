@@ -538,4 +538,82 @@ db.users.find({age:{$eq:20}}).sort({age:1,fname:-1})
 }
 
 
+
+find the users whose age is less than or equal to 20
+
+db.users.find({age:{$lte:20}})
+{
+  _id: ObjectId('67723b95b65d712feda685fc'),
+  fname: 'Sara',
+  age: 20,
+  email: 'sara20@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685ff'),
+  fname: 'Ayaan',
+  age: 19,
+  email: 'ayaan19@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68603'),
+  fname: 'Kavya',
+  age: 18,
+  email: 'kavya18@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68605'),
+  fname: 'Priya',
+  age: 20,
+  email: 'priya20@gmail.com',
+  isActive: true
+}
+
+
+find the users whose fname is in the list
+
+db.users.find({fname:{$in:["Sonal","Kavya","Sara","Vikram","Harsh"]}})
+{
+  _id: ObjectId('67723b95b65d712feda685fc'),
+  fname: 'Sara',
+  age: 20,
+  email: 'sara20@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fd'),
+  fname: 'Vikram',
+  age: 29,
+  email: 'vikram29@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68603'),
+  fname: 'Kavya',
+  age: 18,
+  email: 'kavya18@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68604'),
+  fname: 'Harsh',
+  age: 28,
+  email: 'harsh28@gmail.com',
+  isActive: false
+}
+
+$exists is used to check if a field exists in the document
+
+db.users.find({age:{$exists:true}})
+
+{
+  _id: ObjectId('6772381eb65d712feda685f3'),
+  fname: 'alex',
+  age: 20,
+  email: 'alex',
+  isActive: true
+}
+
 */
