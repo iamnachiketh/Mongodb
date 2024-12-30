@@ -1033,4 +1033,172 @@ db.users.countDocuments({age:{$lte:20}})
 5
 
 
+
+for updation we use updateOne
+
+db.users.updateOne({fname:"Priya"},{$set:{age:19}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+db.users.find({fname:"Priya"})
+{
+  _id: ObjectId('67723b95b65d712feda68605'),
+  fname: 'Priya',
+  age: 19,
+  email: 'priya20@gmail.com',
+  isActive: true
+}
+
+
+
+we can use $inc to increment the value of a field by a certain value in updateOne, updateMany
+
+db.users.updateMany({$where:"this.age > 20 && this.age < 25"},{$inc:{age:1}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 12,
+  modifiedCount: 12,
+  upsertedCount: 0
+}
+
+db.users.find({$where:"this.age > 20 && this.age < 26"})
+{
+  _id: ObjectId('6772381eb65d712feda685f3'),
+  fname: 'alex',
+  lname: 'stevenson',
+  age: 23,
+  email: 'alex@gmail.com'
+}
+{
+  _id: ObjectId('677238cfb65d712feda685f4'),
+  fname: 'nachi',
+  age: 22,
+  email: 'nachi@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f5'),
+  fname: 'Aarav',
+  age: 25,
+  email: 'aarav25@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f6'),
+  fname: 'Diya',
+  age: 23,
+  email: 'diya22@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f8'),
+  fname: 'Meera',
+  age: 22,
+  email: 'meera21@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f9'),
+  fname: 'Arjun',
+  age: 24,
+  email: 'arjun23@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fe'),
+  fname: 'Isha',
+  age: 25,
+  email: 'isha24@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda68601'),
+  fname: 'Riya',
+  age: 23,
+  email: 'riya22@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda68606'),
+  fname: 'Aditi',
+  age: 25,
+  email: 'aditi25@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda68608'),
+  fname: 'Neha',
+  age: 24,
+  email: 'neha23@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda6860a'),
+  fname: 'Tanya',
+  age: 25,
+  email: 'tanya24@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda6860e'),
+  fname: 'Divya',
+  age: 23,
+  email: 'divya22@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda6860f'),
+  fname: 'Sameer',
+  age: 25,
+  email: 'sameer25@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68610'),
+  fname: 'Ishaan',
+  age: 22,
+  email: 'ishaan21@gmail.com',
+  isActive: true
+}
+
+
+
+db.users.updateMany({},{$rename:{fname:"name"}}) all docs are renamed with the  field fname to name
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 32,
+  modifiedCount: 32,
+  upsertedCount: 0
+}
+
+
+db.users.updateMany({_id:ObjectId('67723b95b65d712feda68606')},{$push:{hobbies:"swmming"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+  
+db.users.find({name:"Aditi"})
+{
+  _id: ObjectId('67723b95b65d712feda68606'),
+  age: 25,
+  email: 'aditi25@gmail.com',
+  isActive: false,
+  name: 'Aditi',
+  hobbies: [
+    'swmming'
+  ]
+}
+
 */
