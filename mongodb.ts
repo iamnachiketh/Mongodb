@@ -716,4 +716,321 @@ db.users.find({$or: [ { age:{$gte:20,$lte:21} }, { name:"nachi"} ] } )
   isActive: true
 }
 
+using $not to do not query
+
+db.users.find({ age:{ $not: { $lte:21 } } })
+{
+  _id: ObjectId('6772381eb65d712feda685f3'),
+  fname: 'alex',
+  lname: 'stevenson',
+  age: 22,
+  email: 'alex@gmail.com'
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f5'),
+  fname: 'Aarav',
+  age: 25,
+  email: 'aarav25@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f6'),
+  fname: 'Diya',
+  age: 22,
+  email: 'diya22@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f7'),
+  fname: 'Rohan',
+  age: 28,
+  email: 'rohan28@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f9'),
+  fname: 'Arjun',
+  age: 23,
+  email: 'arjun23@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fa'),
+  fname: 'Sneha',
+  age: 27,
+  email: 'sneha27@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fb'),
+  fname: 'Kabir',
+  age: 30,
+  email: 'kabir30@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fd'),
+  fname: 'Vikram',
+  age: 29,
+  email: 'vikram29@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fe'),
+  fname: 'Isha',
+  age: 24,
+  email: 'isha24@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda68600'),
+  fname: 'Naina',
+  age: 26,
+  email: 'naina26@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68601'),
+  fname: 'Riya',
+  age: 22,
+  email: 'riya22@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda68602'),
+  fname: 'Aakash',
+  age: 31,
+  email: 'aakash31@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68604'),
+  fname: 'Harsh',
+  age: 28,
+  email: 'harsh28@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda68606'),
+  fname: 'Aditi',
+  age: 25,
+  email: 'aditi25@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda68607'),
+  fname: 'Raj',
+  age: 29,
+  email: 'raj29@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68608'),
+  fname: 'Neha',
+  age: 23,
+  email: 'neha23@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda68609'),
+  fname: 'Vivek',
+  age: 30,
+  email: 'vivek30@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda6860a'),
+  fname: 'Tanya',
+  age: 24,
+  email: 'tanya24@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda6860b'),
+  fname: 'Raghav',
+  age: 27,
+  email: 'raghav27@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda6860d'),
+  fname: 'Aman',
+  age: 28,
+  email: 'aman28@gmail.com',
+  isActive: true
+}
+
+
+we can also so compare two fields in a document
+
+db.users.find({$where:"this.email.length>this.fname.length"})
+{
+  _id: ObjectId('6772381eb65d712feda685f3'),
+  fname: 'alex',
+  lname: 'stevenson',
+  age: 22,
+  email: 'alex@gmail.com'
+}
+{
+  _id: ObjectId('677238cfb65d712feda685f4'),
+  fname: 'nachi',
+  age: 21,
+  email: 'nachi@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f5'),
+  fname: 'Aarav',
+  age: 25,
+  email: 'aarav25@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f6'),
+  fname: 'Diya',
+  age: 22,
+  email: 'diya22@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f7'),
+  fname: 'Rohan',
+  age: 28,
+  email: 'rohan28@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f8'),
+  fname: 'Meera',
+  age: 21,
+  email: 'meera21@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f9'),
+  fname: 'Arjun',
+  age: 23,
+  email: 'arjun23@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fa'),
+  fname: 'Sneha',
+  age: 27,
+  email: 'sneha27@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fb'),
+  fname: 'Kabir',
+  age: 30,
+  email: 'kabir30@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fc'),
+  fname: 'Sara',
+  age: 20,
+  email: 'sara20@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fd'),
+  fname: 'Vikram',
+  age: 29,
+  email: 'vikram29@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fe'),
+  fname: 'Isha',
+  age: 24,
+  email: 'isha24@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda685ff'),
+  fname: 'Ayaan',
+  age: 19,
+  email: 'ayaan19@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68600'),
+  fname: 'Naina',
+  age: 26,
+  email: 'naina26@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68601'),
+  fname: 'Riya',
+  age: 22,
+  email: 'riya22@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda68602'),
+  fname: 'Aakash',
+  age: 31,
+  email: 'aakash31@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68603'),
+  fname: 'Kavya',
+  age: 18,
+  email: 'kavya18@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68604'),
+  fname: 'Harsh',
+  age: 28,
+  email: 'harsh28@gmail.com',
+  isActive: false
+}
+{
+  _id: ObjectId('67723b95b65d712feda68605'),
+  fname: 'Priya',
+  age: 20,
+  email: 'priya20@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68606'),
+  fname: 'Aditi',
+  age: 25,
+  email: 'aditi25@gmail.com',
+  isActive: false
+}
+
+
+
+db.users.find({$where:"this.age == 20"}) where is used to compare two fields in a document but it can only be used in find
+{
+  _id: ObjectId('67723b95b65d712feda685fc'),
+  fname: 'Sara',
+  age: 20,
+  email: 'sara20@gmail.com',
+  isActive: true
+}
+{
+  _id: ObjectId('67723b95b65d712feda68605'),
+  fname: 'Priya',
+  age: 20,
+  email: 'priya20@gmail.com',
+  isActive: true
+}
+
+counts the docs in the collection where age is greater than or equal to 20
+
+db.users.countDocuments({age:{$gte:20}})
+29
+
+counts the docs in the collection where age is less than or equal to 20
+db.users.countDocuments({age:{$lte:20}})
+5
+
+
 */
