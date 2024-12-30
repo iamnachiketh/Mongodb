@@ -217,7 +217,7 @@ db["users"].find().sort({fname:1}).limit(10)
 
 
  greater than or equal to 20
- 
+
 db["users"].find({age:{$gte:20}})
 {
   _id: ObjectId('6772381eb65d712feda685f3'),
@@ -418,6 +418,124 @@ it
   isActive: false
 }
 
+
+
+this will only show the fname and age of the users whose age is greater than or equal to 20
+
+use _id:0 to exclude the _id field
+
+every complex query starts with $ and the field name
+
+db["users"].find({age:{$gte:20}},{fname:1,age:1})
+{
+  _id: ObjectId('6772381eb65d712feda685f3'),
+  fname: 'alex',
+  age: 22
+}
+{
+  _id: ObjectId('677238cfb65d712feda685f4'),
+  fname: 'nachi',
+  age: 21
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f5'),
+  fname: 'Aarav',
+  age: 25
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f6'),
+  fname: 'Diya',
+  age: 22
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f7'),
+  fname: 'Rohan',
+  age: 28
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f8'),
+  fname: 'Meera',
+  age: 21
+}
+{
+  _id: ObjectId('67723b95b65d712feda685f9'),
+  fname: 'Arjun',
+  age: 23
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fa'),
+  fname: 'Sneha',
+  age: 27
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fb'),
+  fname: 'Kabir',
+  age: 30
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fc'),
+  fname: 'Sara',
+  age: 20
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fd'),
+  fname: 'Vikram',
+  age: 29
+}
+{
+  _id: ObjectId('67723b95b65d712feda685fe'),
+  fname: 'Isha',
+  age: 24
+}
+{
+  _id: ObjectId('67723b95b65d712feda68600'),
+  fname: 'Naina',
+  age: 26
+}
+{
+  _id: ObjectId('67723b95b65d712feda68601'),
+  fname: 'Riya',
+  age: 22
+}
+{
+  _id: ObjectId('67723b95b65d712feda68602'),
+  fname: 'Aakash',
+  age: 31
+}
+{
+  _id: ObjectId('67723b95b65d712feda68604'),
+  fname: 'Harsh',
+  age: 28
+}
+{
+  _id: ObjectId('67723b95b65d712feda68605'),
+  fname: 'Priya',
+  age: 20
+}
+{
+  _id: ObjectId('67723b95b65d712feda68606'),
+  fname: 'Aditi',
+  age: 25
+}
+{
+  _id: ObjectId('67723b95b65d712feda68607'),
+  fname: 'Raj',
+  age: 29
+}
+
+
+find the users whose age is 20
+
+use ne for not equal to and eq for equal to
+
+db.users.find({age:{$eq:20}}).sort({age:1,fname:-1})
+{
+  _id: ObjectId('67723b95b65d712feda685fc'),
+  fname: 'Sara',
+  age: 20,
+  email: 'sara20@gmail.com',
+  isActive: true
+}
 
 
 */
