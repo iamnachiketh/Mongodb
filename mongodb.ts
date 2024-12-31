@@ -1188,7 +1188,7 @@ db.users.updateMany({_id:ObjectId('67723b95b65d712feda68606')},{$push:{hobbies:"
   modifiedCount: 1,
   upsertedCount: 0
 }
-  
+
 db.users.find({name:"Aditi"})
 {
   _id: ObjectId('67723b95b65d712feda68606'),
@@ -1200,5 +1200,16 @@ db.users.find({name:"Aditi"})
     'swmming'
   ]
 }
+
+
+delete the docs where age is less than 20
+db.users.deleteMany({age:{$lt:20}})
+
+delete the docs where age is greater than 30
+db.users.deleteMany({age:{$gt:30}})
+
+delete works on the basis of the filter provided in the first argument of the deleteMany function
+
+you can use deleteOne to delete only one doc
 
 */
